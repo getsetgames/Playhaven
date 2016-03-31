@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  playhaven-sdk-ios
+
+  Created by Anton Fedorchenko on 3/26/14.
+
+*/
+
+"EventsInfoMessage" = "This a JSON blob representing properties of the event that will be sent to PlayHaven's server. The specified JSON object will be converted to NSDictionary instance and then passed as properties to a newly created PHEvent object.\n\nThe JSON object should conform to the following JSON schema:\n{\n\t\"type\": \"object\",\n\t\"additionalProperties\": false,\n\t\"patternProperties\": {\n\t\t\"\" : {\n\t\t\t\"anyOf\": [\n\t\t\t\t{\"type\" : \"string\"},\n\t\t\t\t{\"type\" : \"number\"},\n\t\t\t\t{\"$ref\" : \"#\"}\n\t\t\t]\n\t\t}\n\t}\n}";
+"CustomDimensionsInfoMessage" = "This field can be used to set custom dimensions on a request object. The value that you provide within this field must be a valid single-level JSON object with key:value pairs where value is a string, number, boolean or null. The JSON object that you specify here gets converted to NSDictionary instance and then passed to a content request object.\n\nThe JSON object should conform to the following JSON schema:\n{\n\t\"type\": \"object\",\n\t\"additionalProperties\": false,\n\t\"patternProperties\": {\n\t\t\"\" : {\n\t\t\t\"anyOf\": [\n\t\t\t\t{\"type\" : \"string\"},\n\t\t\t\t{\"type\" : \"number\"},\n\t\t\t\t{\"type\" : \"boolean\"},\n\t\t\t\t{\"type\" : \"null\"}\n\t\t\t]\n\t\t}\n\t}\n}";
