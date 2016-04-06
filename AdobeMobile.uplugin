@@ -1,0 +1,23 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "Playhaven",
+	"Description": "This plugin serves to interface with the Playhaven SDK",
+	"Category": "Advertising",
+	"CreatedBy": "Get Set Games Inc.",
+	"CreatedByURL": "http://getsetgames.com",
+	"DocsURL": "https://github.com/getsetgames/Playhaven",
+	"MarketplaceURL": "",
+	"Modules": [
+		{
+			"Name": "Playhaven",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	],
+	"EnabledByDefault": false,
+	"CanContainContent": false,
+	"IsBetaVersion": false,
+	"Installed": false
+}
