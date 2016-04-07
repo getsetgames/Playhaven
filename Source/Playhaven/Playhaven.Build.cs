@@ -4,11 +4,17 @@
 //
 
 using System.IO;
+using System.Diagnostics;
 
 namespace UnrealBuildTool.Rules
 {
 	public class Playhaven : ModuleRules
 	{
+		private string ModulePath
+		{
+			get { return Path.GetDirectoryName( RulesCompiler.GetModuleFilename( this.GetType().Name ) ); }
+		}
+
 		public Playhaven(TargetInfo Target)
 		{
 			PublicIncludePaths.AddRange(
@@ -56,22 +62,18 @@ namespace UnrealBuildTool.Rules
 
 
 			if (Target.Platform == UnrealTargetPlatform.IOS) {
-				PublicAdditionalFrameworks.Add( 
-					new UEBuildFramework( 
-						"Playhaven",
-						"../../lib/iOS/Playhaven.embeddedframework.zip"
-					)
-				); 
 
-				PublicFrameworks.AddRange( 
-					new string[] 
-					{ 
-						"StoreKit",
-						"Foundation",
-						"CoreGraphics",
-						"UIKit"
-					}
-				);
+				var XCodeProjectFile = Path.Combine(ModulePath,"..","..","lib","iOS","playhaven-sdk-ios.xcodeproj");
+
+ 				ProcessStartInfo info = new ProcessStartInfo("xcodebuild");
+
+        		info.UseShellExecute = true;
+        		info.Arguments       = "-project '" + XCodeProjectFile + "' -target PlayHaven";
+
+        		Process.Start(info);
+
+				var Lib = Path.Combine(ModulePath,"..","..","lib","iOS","build","Release-iphoneos","libPlayHaven.a");
+				PublicAdditionalLibraries.Add(Lib);
 			}
 			else if(Target.Platform == UnrealTargetPlatform.Android)
 			{
