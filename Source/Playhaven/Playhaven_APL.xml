@@ -22,6 +22,12 @@
 	<!-- optional files or directories to copy to Intermediate/Android/APK -->
  	<resourceCopies>
 		<copyFile src="$S(EngineDir)/Plugins/GSG/Playhaven/lib/Android/JavaLibs/Playhaven/output/playhaven.jar" dst="$S(BuildDir)/libs/playhaven.jar" />		
+		<copyFile src="$S(EngineDir)/Plugins/GSG/Playhaven/lib/Android/JavaLibs/Playhaven/libs/commons-lang-2.6.jar" dst="$S(BuildDir)/libs/commons-lang-2.6.jar" />
+		<copyFile src="$S(EngineDir)/Plugins/GSG/Playhaven/lib/Android/JavaLibs/Playhaven/libs/gcm-client-3.jar" dst="$S(BuildDir)/libs/gcm-client-3.jar" />
+		<copyFile src="$S(EngineDir)/Plugins/GSG/Playhaven/lib/Android/JavaLibs/Playhaven/libs/json-path-0.8.1.jar" dst="$S(BuildDir)/libs/json-path-0.8.1.jar" />
+		<copyFile src="$S(EngineDir)/Plugins/GSG/Playhaven/lib/Android/JavaLibs/Playhaven/libs/json-smart-1.1.1.jar" dst="$S(BuildDir)/libs/json-smart-1.1.1.jar" />
+		<copyFile src="$S(EngineDir)/Plugins/GSG/Playhaven/lib/Android/JavaLibs/Playhaven/libs/spring-android-core-1.0.1.RELEASE.jar" dst="$S(BuildDir)/libs/spring-android-core-1.0.1.RELEASE.jar" />
+		<copyFile src="$S(EngineDir)/Plugins/GSG/Playhaven/lib/Android/JavaLibs/Playhaven/libs/spring-android-rest-template-1.0.1.RELEASE.jar" dst="$S(BuildDir)/libs/spring-android-rest-template-1.0.1.RELEASE.jar" />
 	</resourceCopies>
 
 	<!-- optional additions to the GameActivity imports in GameActivity.java -->
