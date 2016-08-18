@@ -18,3 +18,25 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+
+-keep class com.google.android.gms.** { *; }
+-dontwarn com.google.android.gms.**
+
+-keep class org.codehaus.jackson.** { *; }
+-dontwarn org.codehaus.jackson.**
+
+-keep class com.google.gson.** { *; }
+-dontwarn com.google.gson.**
+
+-keep class org.apache.commons.httpclient.** { *; }
+-dontwarn org.apache.commons.httpclient.**
+
+-keep class com.google.code.rome.android.repackaged.com.sun.syndication.** { *; }
+-dontwarn com.google.code.rome.android.repackaged.com.sun.syndication.**
+
+-keep class com.fasterxml.jackson.** { *; }
+-dontwarn com.fasterxml.jackson.**
+
+-keep class org.simpleframework.xml.** { *; }
+-dontwarn org.simpleframework.xml.**
+
