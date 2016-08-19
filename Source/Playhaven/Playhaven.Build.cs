@@ -62,19 +62,10 @@ namespace UnrealBuildTool.Rules
 			);
 
 
-			if (Target.Platform == UnrealTargetPlatform.IOS) {
-
-				var XCodeProjectFile = Path.Combine(ModulePath,"..","..","lib","iOS","playhaven-sdk-ios.xcodeproj");
-
- 				ProcessStartInfo info = new ProcessStartInfo("xcodebuild");
-
-        		info.UseShellExecute = true;
-        		info.Arguments       = "-project '" + XCodeProjectFile + "' -target PlayHaven";
-
-        		Process.Start(info);
-
-				var Lib = Path.Combine(ModulePath,"..","..","lib","iOS","build","Release-iphoneos","libPlayHaven.a");
-				PublicAdditionalLibraries.Add(Lib);
+			if (Target.Platform == UnrealTargetPlatform.IOS) 
+			{
+  				PrivateIncludePaths.Add(Path.Combine(ModulePath, "..", "..", "lib", "iOS", "artifacts", "include"));
+				PublicAdditionalLibraries.Add(Path.Combine(Path.Combine(ModulePath, "..", "..", "lib", "iOS", "artifacts", "lib", "libPlayHaven.a")));
 			}
 			else if(Target.Platform == UnrealTargetPlatform.Android)
 			{
