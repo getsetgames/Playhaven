@@ -15,7 +15,26 @@
 	<!-- optional additions to proguard -->
 	<proguardAdditions>
 		<insert>
+-keep class com.playhaven.android.** { *; }
+-dontwarn com.playhaven.android.**
 
+-keep class com.google.gson.** { *; }
+-dontwarn com.google.gson.**
+
+-keep class org.codehaus.jackson.** { *; }
+-dontwarn org.codehaus.jackson.**
+
+-keep class org.apache.commons.httpclient.** { *; }
+-dontwarn org.apache.commons.httpclient.**
+
+-keep class com.google.code.rome.android.repackaged.com.sun.syndication.** { *; }
+-dontwarn com.google.code.rome.android.repackaged.com.sun.syndication.**
+
+-keep class com.fasterxml.jackson.** { *; }
+-dontwarn com.fasterxml.jackson.**
+
+-keep class org.simpleframework.xml.** { *; }
+-dontwarn org.simpleframework.xml.**
 		</insert>
 	</proguardAdditions>
 	
