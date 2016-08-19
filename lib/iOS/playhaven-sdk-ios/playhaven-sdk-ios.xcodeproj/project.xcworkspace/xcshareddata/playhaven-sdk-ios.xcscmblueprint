@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "A639EE458B64B9318B8D511E8655862CC496BBE3",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "6EBDBC6EEC91CB4D75AE91FE9EFC759886F9D941" : 0,
+    "A639EE458B64B9318B8D511E8655862CC496BBE3" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "9E4CE2B9-29BF-486E-ABFC-ECA61ED15617",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "6EBDBC6EEC91CB4D75AE91FE9EFC759886F9D941" : "..\/..\/..",
+    "A639EE458B64B9318B8D511E8655862CC496BBE3" : "Playhaven\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "playhaven-sdk-ios",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "lib\/iOS\/playhaven-sdk-ios\/playhaven-sdk-ios.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:getsetgames\/UnrealEngine.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6EBDBC6EEC91CB4D75AE91FE9EFC759886F9D941"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:getsetgames\/Playhaven.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A639EE458B64B9318B8D511E8655862CC496BBE3"
+    }
+  ]
+}

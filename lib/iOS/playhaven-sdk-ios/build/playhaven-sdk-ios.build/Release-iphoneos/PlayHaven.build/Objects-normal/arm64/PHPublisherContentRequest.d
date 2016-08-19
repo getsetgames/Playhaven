@@ -1,0 +1,24 @@
+dependencies: \
+  /Volumes/MacintoshHD/UnrealEngine/Engine/Plugins/GSG/Playhaven/lib/iOS/src/PHPublisherContentRequest.m \
+  /Volumes/MacintoshHD/UnrealEngine/Engine/Plugins/GSG/Playhaven/lib/iOS/src/PHPublisherContentRequest.h \
+  /Volumes/MacintoshHD/UnrealEngine/Engine/Plugins/GSG/Playhaven/lib/iOS/src/PHAdRequest.h \
+  /Volumes/MacintoshHD/UnrealEngine/Engine/Plugins/GSG/Playhaven/lib/iOS/src/PHAPIRequest.h \
+  /Volumes/MacintoshHD/UnrealEngine/Engine/Plugins/GSG/Playhaven/lib/iOS/src/PHPublisherSubContentRequest.h \
+  /Volumes/MacintoshHD/UnrealEngine/Engine/Plugins/GSG/Playhaven/lib/iOS/src/PHContent.h \
+  /Volumes/MacintoshHD/UnrealEngine/Engine/Plugins/GSG/Playhaven/lib/iOS/src/PHBeaconManager.h \
+  /Volumes/MacintoshHD/UnrealEngine/Engine/Plugins/GSG/Playhaven/lib/iOS/src/PHBeaconObject.h \
+  /Volumes/MacintoshHD/UnrealEngine/Engine/Plugins/GSG/Playhaven/lib/iOS/src/PHPreloadingObject.h \
+  /Volumes/MacintoshHD/UnrealEngine/Engine/Plugins/GSG/Playhaven/lib/iOS/src/PHCacheObject.h \
+  /Volumes/MacintoshHD/UnrealEngine/Engine/Plugins/GSG/Playhaven/lib/iOS/src/PHConstants.h \
+  /Volumes/MacintoshHD/UnrealEngine/Engine/Plugins/GSG/Playhaven/lib/iOS/src/PHStringUtil.h \
+  /Volumes/MacintoshHD/UnrealEngine/Engine/Plugins/GSG/Playhaven/lib/iOS/src/PHReward.h \
+  /Volumes/MacintoshHD/UnrealEngine/Engine/Plugins/GSG/Playhaven/lib/iOS/src/PHPurchase.h \
+  /Volumes/MacintoshHD/UnrealEngine/Engine/Plugins/GSG/Playhaven/lib/iOS/src/PHPublisherIAPTrackingRequest.h \
+  /Volumes/MacintoshHD/UnrealEngine/Engine/Plugins/GSG/Playhaven/lib/iOS/src/PHTimeInGame.h \
+  /Volumes/MacintoshHD/UnrealEngine/Engine/Plugins/GSG/Playhaven/lib/iOS/src/PHAPIRequest+Private.h \
+  /Volumes/MacintoshHD/UnrealEngine/Engine/Plugins/GSG/Playhaven/lib/iOS/src/PHContentView.h \
+  /Volumes/MacintoshHD/UnrealEngine/Engine/Plugins/GSG/Playhaven/lib/iOS/src/PHMoviePlayerViewController.h \
+  /Volumes/MacintoshHD/UnrealEngine/Engine/Plugins/GSG/Playhaven/lib/iOS/src/PHURLLoader.h \
+  /Volumes/MacintoshHD/UnrealEngine/Engine/Plugins/GSG/Playhaven/lib/iOS/src/PHPreloader.h \
+  /Volumes/MacintoshHD/UnrealEngine/Engine/Plugins/GSG/Playhaven/lib/iOS/src/PHCacheCreativeRequest.h \
+  /Volumes/MacintoshHD/UnrealEngine/Engine/Plugins/GSG/Playhaven/lib/iOS/src/PHPublisherOpenRequest.h
