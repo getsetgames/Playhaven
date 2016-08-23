@@ -7,6 +7,8 @@
 #include "PlayhavenSettings.h"
 
 UPlayhavenSettings::UPlayhavenSettings(const FObjectInitializer& ObjectInitializer)
-: Super(ObjectInitializer)
+: Super(ObjectInitializer),
+PlayhavenToken(""),
+PlayhavenSecret("")
 {
 }
