@@ -64,7 +64,10 @@ import com.playhaven.android.view.FullScreen;
 	<!-- optional additions to the GameActivity class in GameActivity.java -->
 	<gameActivityClassAdditions>
 		<insert>
-
+public void AndroidThunkJava_PlayhavenContentRequest(String placement)
+{
+	startActivity(FullScreen.createIntent(this, placement));
+}
 		</insert>
 	</gameActivityClassAdditions>
 	
