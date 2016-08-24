@@ -8,10 +8,14 @@
 void UPlayhavenComponent::OnRegister()
 {
 	Super::OnRegister();
-	
+    
+    UPlayhavenComponent::RequestWillGetContentDelegate.AddUObject(this, &UPlayhavenComponent::RequestWillGetContent_Handler);
 }
 
 void UPlayhavenComponent::OnUnregister()
 {
-	Super::OnUnregister();	
+	Super::OnUnregister();
+    
+    UPlayhavenComponent::RequestWillGetContentDelegate.RemoveAll(this);
 }
+UPlayhavenComponent::FPlayhavenPlacementDelegate UPlayhavenComponent::RequestWillGetContentDelegate;

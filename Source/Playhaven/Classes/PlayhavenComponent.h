@@ -15,10 +15,23 @@ class UPlayhavenComponent : public UActorComponent
 	
 public:
 
-	
+    DECLARE_MULTICAST_DELEGATE(FPlayhavenDelegate);
+    DECLARE_MULTICAST_DELEGATE_OneParam(FPlayhavenPlacementDelegate, FString);
+    
+    
+    static FPlayhavenPlacementDelegate RequestWillGetContentDelegate;
+
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE(FPlayhavenDynDelegate);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPlayhavenPlacementDynDelegate, FString, Placement);
+    
+    UPROPERTY(BlueprintAssignable)
+    FPlayhavenPlacementDynDelegate RequestWillGetContent;
+    
 	void OnRegister() override;
 	void OnUnregister() override;
 	
 private:	
-	
+	void RequestWillGetContent_Handler(FString Placement) { RequestWillGetContent.Broadcast(Placement); }
+    
+    
 };
