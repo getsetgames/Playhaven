@@ -78,6 +78,19 @@ public void AndroidThunkJava_PlayhavenContentRequest(String placement)
 	
 	<!-- optional additions to GameActivity onCreate in GameActivity.java -->
 	<gameActivityOnCreateAdditions>
+		<insert>
+String token  = "</insert><insertValue value="$S(sPlayhavenToken)" /><insert>";
+String secret = "</insert><insertValue value="$S(sPlayhavenSecret)" /><insert>";
+
+try 
+{
+	PlayHaven.configure(this, token, secret);
+} 
+catch (PlayHavenException e) 
+{
+	e.printStackTrace();
+}
+		</insert>
 	</gameActivityOnCreateAdditions>
 
 	<!-- optional additions to GameActivity onDestroy in GameActivity.java -->
