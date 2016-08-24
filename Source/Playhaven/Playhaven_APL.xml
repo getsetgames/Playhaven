@@ -73,7 +73,9 @@ public void AndroidThunkJava_PlayhavenContentRequest(String placement)
 	
 	<!-- optional additions to GameActivity onCreate metadata reading in GameActivity.java -->
 	<gameActivityReadMetadataAdditions>
+		<insert>
 
+		</insert>
 	</gameActivityReadMetadataAdditions>
 	
 	<!-- optional additions to GameActivity onCreate in GameActivity.java -->
@@ -134,6 +136,9 @@ catch (PlayHavenException e)
 
 	<!-- optional additions to GameActivity onActivityResult in GameActivity.java -->
 	<gameActivityOnActivityResultAdditions>
+		<insert>
+
+		</insert>
 	</gameActivityOnActivityResultAdditions>
 	
 
