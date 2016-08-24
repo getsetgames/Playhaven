@@ -54,7 +54,9 @@
 	<!-- optional additions to the GameActivity imports in GameActivity.java -->
 	<gameActivityImportAdditions>
 		<insert>
-
+import com.playhaven.android.PlayHaven;
+import com.playhaven.android.PlayHavenException;
+import com.playhaven.android.view.FullScreen;
 		</insert>
 	</gameActivityImportAdditions>
 	
