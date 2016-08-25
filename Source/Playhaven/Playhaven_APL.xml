@@ -49,6 +49,7 @@
 		<copyFile src="$S(EngineDir)/Plugins/GSG/Playhaven/lib/Android/libs/json-smart-1.1.1.jar" dst="$S(BuildDir)/libs/json-smart-1.1.1.jar" />
 		<copyFile src="$S(EngineDir)/Plugins/GSG/Playhaven/lib/Android/libs/spring-android-core-1.0.1.RELEASE.jar" dst="$S(BuildDir)/libs/spring-android-core-1.0.1.RELEASE.jar" />
 		<copyFile src="$S(EngineDir)/Plugins/GSG/Playhaven/lib/Android/libs/spring-android-rest-template-1.0.1.RELEASE.jar" dst="$S(BuildDir)/libs/spring-android-rest-template-1.0.1.RELEASE.jar" />
+		<copyDir src="$S(EngineDir)/Plugins/GSG/Playhaven/lib/Android/JavaLibs/PlayHaven/res" dst="$S(BuildDir)/res"/>
 	</resourceCopies>
 
 	<!-- optional additions to the GameActivity imports in GameActivity.java -->
