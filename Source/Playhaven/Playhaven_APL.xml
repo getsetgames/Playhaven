@@ -55,9 +55,13 @@
 	<!-- optional additions to the GameActivity imports in GameActivity.java -->
 	<gameActivityImportAdditions>
 		<insert>
+import com.playhaven.android.Placement;
 import com.playhaven.android.PlayHaven;
 import com.playhaven.android.PlayHavenException;
+import com.playhaven.android.data.Purchase;
+import com.playhaven.android.req.PurchaseTrackingRequest;
 import com.playhaven.android.view.FullScreen;
+import com.playhaven.android.view.PlayHavenView;
 		</insert>
 	</gameActivityImportAdditions>
 	
@@ -65,9 +69,42 @@ import com.playhaven.android.view.FullScreen;
 	<!-- optional additions to the GameActivity class in GameActivity.java -->
 	<gameActivityClassAdditions>
 		<insert>
-public void AndroidThunkJava_PlayhavenContentRequest(String placement)
+
+public void AndroidThunkJava_PlayhavenContentRequest(String placement, boolean showsOverlayImmediately)
 {
-	startActivity(FullScreen.createIntent(this, placement));
+ 	int displayOptions = showsOverlayImmediately ? PlayHavenView.DISPLAY_OVERLAY : 0 | PlayHavenView.DISPLAY_ANIMATION;
+
+    startActivity(FullScreen.createIntent(this, placement, displayAnimations));
+}
+
+public void AndroidThunkJava_PlayhavenContentRequestPreload(String placement)
+{
+    Placement p = new Placement(placement);
+    p.preload(this.getApplicationContext());
+}
+
+public void AndroidThunkJava_PlayhavenTrackPurchase(String productID, int quantity, int resolution, String receiptData)
+{
+	Purchase p = new Purchase();
+	p.setSKU(productID);
+	p.setPrice(new Double(price));
+	p.setQuantity(quantity);
+	p.setResult(Result.values()[resolution]);
+
+	PurchaseTrackingRequest r = new PurchaseTrackingRequest(purchase);
+	r.send(this);
+}
+
+public void AndroidThunkJava_PlayhavenSetOptOutStatus(boolean optOutStatus) 
+{
+	try 
+    {
+    	PlayHaven.setOptOut(this.getApplicationContext(), optOutStatus);
+    } 
+    catch (PlayHavenException e) 
+    {
+    	// Log exception
+    }
 }
 		</insert>
 	</gameActivityClassAdditions>
