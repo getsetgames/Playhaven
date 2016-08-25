@@ -101,3 +101,22 @@ static PlayhavenFunctionsDelegate *phs;
 @end
 
 #endif
+
+void UPlayhavenFunctions::PlayhavenContentRequest(FString placement, bool showsOverlayImmediately)
+{
+    
+}
+
+void UPlayhavenFunctions::PlayhavenContentRequestPreload(FString placement)
+{
+    
+}
+
+void UPlayhavenFunctions::PlayhavenTrackPurchase(FString productID, int quantity, int resolution, FString receiptData)
+{
+    
+}
+
+void UPlayhavenFunctions::PlayhavenSetOptOutStatus(bool optOutStatus)
+{
+}

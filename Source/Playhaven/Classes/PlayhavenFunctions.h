@@ -7,11 +7,20 @@
 
 #include "PlayhavenFunctions.generated.h"
 
-
 UCLASS(NotBlueprintable)
 class UPlayhavenFunctions : public UObject {
 	GENERATED_BODY()
 	
 public:
-	
+    UFUNCTION(BlueprintCallable, meta = (Keywords = "playhaven ad advertising analytics"), Category = "Playhaven")
+    static void PlayhavenContentRequest(FString placement, bool showsOverlayImmediately);
+    
+    UFUNCTION(BlueprintCallable, meta = (Keywords = "playhaven ad advertising analytics"), Category = "Playhaven")
+    static void PlayhavenTrackPurchase(FString productID, int quantity, int resolution, FString receiptData);
+    
+    UFUNCTION(BlueprintCallable, meta = (Keywords = "playhaven ad advertising analytics"), Category = "Playhaven")
+    static void PlayhavenContentRequestPreload(FString placement);
+    
+    UFUNCTION(BlueprintCallable, meta = (Keywords = "playhaven ad advertising analytics"), Category = "Playhaven")
+    static void PlayhavenSetOptOutStatus(bool optOutStatus);
 };
