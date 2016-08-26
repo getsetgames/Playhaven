@@ -104,6 +104,39 @@ static PlayhavenFunctionsDelegate *phs;
 
 void UPlayhavenFunctions::PlayhavenContentRequest(FString placement, bool showsOverlayImmediately)
 {
+#if PLATFORM_IOS
+    NSDictionary *d = [phs infoSDKSettings];
+    
+    if (d)
+    {
+        NSString *token  = d[@"Token"];
+        NSString *secret = d[@"Secret"];
+        
+        PHPublisherContentRequest *r = [PHPublisherContentRequest requestForApp:token
+                                                                         secret:secret
+                                                                      placement:placement.GetNSString()
+                                                                       delegate:phs];
+        r.showsOverlayImmediately = YES;
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [r send];
+        });
+    }
+    
+#elif PLATFORM_ANDROID
+    static jmethodID Method = FJavaWrapper::FindMethod(Env,
+                                                       FJavaWrapper::GameActivityClassID,
+                                                       "AndroidThunkJava_PlayhavenContentRequest",
+                                                       "(Ljava/lang/String;Z)V",
+                                                       false);
+    
+    jstring  jPlacement               = Env->NewStringUTF(TCHAR_TO_UTF8(*placement));
+    jboolean jShowsOverlayImmediately = (jboolean)ShowsOverlayImmediately;
+
+    FJavaWrapper::CallVoidMethod(Env, FJavaWrapper::GameActivityThis, Method, jPlacement, jShowsOverlayImmediately);
+    
+    Env->DeleteLocalRef(jPlacement);
+#endif
     
 }
 
