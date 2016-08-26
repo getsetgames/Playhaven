@@ -251,8 +251,8 @@ void UPlayhavenFunctions::PlayhavenTrackPurchase(FString productID, int quantity
                                                                                  secret:secret
                                                                                 product:productID.GetNSString()
                                                                                quantity:quantity
-                                                                             resolution:resolution
-                                                                            receiptData:receiptData];
+                                                                             resolution:(PHPurchaseResolutionType)resolution
+                                                                            receiptData:[NSData dataWithContentsOfString:receiptData.GetNSString()]];
         dispatch_async(dispatch_get_main_queue(), ^{
             [r send];
         });
