@@ -252,7 +252,7 @@ void UPlayhavenFunctions::PlayhavenTrackPurchase(FString productID, int quantity
                                                                                 product:productID.GetNSString()
                                                                                quantity:quantity
                                                                              resolution:(PHPurchaseResolutionType)resolution
-                                                                            receiptData:[NSData dataWithContentsOfString:receiptData.GetNSString()]];
+                                                                            receiptData:[receiptData.GetNSString() dataUsingEncoding:NSUTF8StringEncoding]];
         dispatch_async(dispatch_get_main_queue(), ^{
             [r send];
         });
