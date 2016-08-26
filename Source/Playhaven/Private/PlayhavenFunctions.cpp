@@ -273,4 +273,17 @@ void UPlayhavenFunctions::PlayhavenTrackPurchase(FString productID, int quantity
 
 void UPlayhavenFunctions::PlayhavenSetOptOutStatus(bool optOutStatus)
 {
+#if PLATFORM_IOS
+    [PHAPIRequest setOptOutStatus:(BOOL)optOutStatus];
+
+#elif PLATFORM_ANDROID
+    static jmethodID Method = FJavaWrapper::FindMethod(Env,
+                                                       FJavaWrapper::GameActivityClassID,
+                                                       "AndroidThunkJava_PlayhavenSetOptOutStatus",
+                                                       "(Z)V",
+                                                       false);
+    jboolean jOptOutStatus = (jboolean)optOutStatus;
+
+    FJavaWrapper::CallVoidMethod(Env, FJavaWrapper::GameActivityThis, Method, jOptOutStatus);
+#endif
 }
