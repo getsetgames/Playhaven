@@ -89,9 +89,9 @@ public void AndroidThunkJava_PlayhavenTrackPurchase(String productID, int quanti
 	p.setSKU(productID);
 	p.setPrice(new Double(price));
 	p.setQuantity(quantity);
-	p.setResult(Result.values()[resolution]);
+	p.setResult(Purchase.Result.values()[resolution]);
 
-	PurchaseTrackingRequest r = new PurchaseTrackingRequest(purchase);
+	PurchaseTrackingRequest r = new PurchaseTrackingRequest(p);
 	r.send(this);
 }
 
