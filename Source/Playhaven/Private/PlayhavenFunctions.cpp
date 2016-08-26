@@ -142,6 +142,37 @@ void UPlayhavenFunctions::PlayhavenContentRequest(FString placement, bool showsO
 
 void UPlayhavenFunctions::PlayhavenContentRequestPreload(FString placement)
 {
+#if PLATFORM_IOS
+    NSDictionary *d = [phs infoSDKSettings];
+    
+    if (d)
+    {
+        NSString *token  = d[@"Token"];
+        NSString *secret = d[@"Secret"];
+        
+        PHPublisherContentRequest *r = [PHPublisherContentRequest requestForApp:token
+                                                                         secret:secret
+                                                                      placement:placement.GetNSString()
+                                                                       delegate:phs];
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [r preload];
+        });
+    }
+    
+#elif PLATFORM_ANDROID
+    static jmethodID Method = FJavaWrapper::FindMethod(Env,
+                                                       FJavaWrapper::GameActivityClassID,
+                                                       "AndroidThunkJava_PlayhavenContentRequestPreload",
+                                                       "(Ljava/lang/String;)V",
+                                                       false);
+    
+    jstring jPlacement = Env->NewStringUTF(TCHAR_TO_UTF8(*placement));
+    
+    FJavaWrapper::CallVoidMethod(Env, FJavaWrapper::GameActivityThis, Method, jPlacement);
+    
+    Env->DeleteLocalRef(jPlacement);
+#endif
     
 }
 
