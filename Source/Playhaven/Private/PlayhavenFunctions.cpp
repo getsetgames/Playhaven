@@ -188,7 +188,7 @@ void UPlayhavenFunctions::PlayhavenContentRequest(FString placement, bool showsO
                                                            false);
         
         jstring  jPlacement               = Env->NewStringUTF(TCHAR_TO_UTF8(*placement));
-        jboolean jShowsOverlayImmediately = (jboolean)ShowsOverlayImmediately;
+        jboolean jShowsOverlayImmediately = (jboolean)showsOverlayImmediately;
 
         FJavaWrapper::CallVoidMethod(Env, FJavaWrapper::GameActivityThis, Method, jPlacement, jShowsOverlayImmediately);
         
