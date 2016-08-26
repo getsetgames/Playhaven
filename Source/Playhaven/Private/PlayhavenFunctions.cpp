@@ -69,7 +69,7 @@ static PlayhavenFunctionsDelegate *phs;
     if (info)
     {
         dispatch_async(dispatch_get_main_queue(), ^{
-            [[PHPublisherOpenRequest requestForApp:info[@"Token"] secret:info[@"Secret"]] send]
+            [[PHPublisherOpenRequest requestForApp:info[@"Token"] secret:info[@"Secret"]] send];
         });
     }
     else
