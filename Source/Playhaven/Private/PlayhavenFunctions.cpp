@@ -98,6 +98,61 @@ static PlayhavenFunctionsDelegate *phs;
     [phs trackApplicationOpen];
 }
 
+
+-(void)requestWillGetContent:(PHPublisherContentRequest *)request
+{
+}
+
+-(void)requestDidGetContent:(PHPublisherContentRequest *)request
+{
+    
+}
+
+-(void)request:(PHPublisherContentRequest *)request contentWillDisplay:(PHContent *)content
+{
+    
+}
+
+-(void)request:(PHPublisherContentRequest *)request contentDidDisplay:(PHContent *)content
+{
+    
+}
+
+-(void)requestContentDidDismiss:(PHPublisherContentRequest *)request DEPRECATED_ATTRIBUTE
+{
+    
+}
+
+-(void)request:(PHPublisherContentRequest *)request contentDidDismissWithType:(PHPublisherContentDismissType *)type
+{
+    
+}
+
+-(void)request:(PHPublisherContentRequest *)request contentDidFailWithError:(NSError *)error DEPRECATED_ATTRIBUTE
+{
+    
+}
+
+-(UIImage *)request:(PHPublisherContentRequest *)request closeButtonImageForControlState:(UIControlState)state content:(PHContent *)content
+{
+    
+}
+
+-(UIColor *)request:(PHPublisherContentRequest *)request borderColorForContent:(PHContent *)content
+{
+    
+}
+
+-(void)request:(PHPublisherContentRequest *)request unlockedReward:(PHReward *)reward
+{
+    
+}
+
+-(void)request:(PHPublisherContentRequest *)request makePurchase:(PHPurchase *)purchase
+{
+    
+}
+
 @end
 
 #endif
