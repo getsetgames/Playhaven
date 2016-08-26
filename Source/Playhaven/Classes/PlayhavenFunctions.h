@@ -16,7 +16,7 @@ public:
     static void PlayhavenContentRequest(FString placement, bool showsOverlayImmediately);
     
     UFUNCTION(BlueprintCallable, meta = (Keywords = "playhaven ad advertising analytics"), Category = "Playhaven")
-    static void PlayhavenTrackPurchase(FString productID, int quantity, int resolution, FString receiptData);
+    static void PlayhavenTrackPurchase(FString productID, int quantity, float price, int resolution, FString receiptData);
     
     UFUNCTION(BlueprintCallable, meta = (Keywords = "playhaven ad advertising analytics"), Category = "Playhaven")
     static void PlayhavenContentRequestPreload(FString placement);

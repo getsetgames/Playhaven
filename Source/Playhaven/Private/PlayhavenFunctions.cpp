@@ -237,7 +237,7 @@ void UPlayhavenFunctions::PlayhavenContentRequestPreload(FString placement)
     
 }
 
-void UPlayhavenFunctions::PlayhavenTrackPurchase(FString productID, int quantity, int resolution, FString receiptData)
+void UPlayhavenFunctions::PlayhavenTrackPurchase(FString productID, int quantity, float price, int resolution, FString receiptData)
 {
 #if PLATFORM_IOS
     NSDictionary *d = [phs infoSDKSettings];
@@ -263,15 +263,16 @@ void UPlayhavenFunctions::PlayhavenTrackPurchase(FString productID, int quantity
         static jmethodID Method = FJavaWrapper::FindMethod(Env,
                                                            FJavaWrapper::GameActivityClassID,
                                                            "AndroidThunkJava_PlayhavenTrackPurchase",
-                                                           "(Ljava/lang/String;IILjava/lang/String;)V",
+                                                           "(Ljava/lang/String;IIFLjava/lang/String;)V",                                                    
                                                            false);
         
         jstring jProductID   = Env->NewStringUTF(TCHAR_TO_UTF8(*productID));
         jint    jQuantity    = (jint)quantity;
+        jfloat  jPrice       = (jfloat)price;
         jint    jResolution  = (jint)resolution;
         jstring jReceiptData = Env->NewStringUTF(TCHAR_TO_UTF8(*receiptData));
         
-        FJavaWrapper::CallVoidMethod(Env, FJavaWrapper::GameActivityThis, Method, jProductID, jQuantity, jResolution, jReceiptData);
+        FJavaWrapper::CallVoidMethod(Env, FJavaWrapper::GameActivityThis, Method, jProductID, jQuantity, jPrice, jResolution, jReceiptData);
         
         Env->DeleteLocalRef(jProductID);
         Env->DeleteLocalRef(jReceiptData);
