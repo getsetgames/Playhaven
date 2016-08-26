@@ -135,12 +135,12 @@ static PlayhavenFunctionsDelegate *phs;
 
 -(UIImage *)request:(PHPublisherContentRequest *)request closeButtonImageForControlState:(UIControlState)state content:(PHContent *)content
 {
-    
+    return nil;
 }
 
 -(UIColor *)request:(PHPublisherContentRequest *)request borderColorForContent:(PHContent *)content
 {
-    
+    return nil;
 }
 
 -(void)request:(PHPublisherContentRequest *)request unlockedReward:(PHReward *)reward
