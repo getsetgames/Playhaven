@@ -83,7 +83,7 @@ public void AndroidThunkJava_PlayhavenContentRequestPreload(String placement)
     p.preload(this.getApplicationContext());
 }
 
-public void AndroidThunkJava_PlayhavenTrackPurchase(String productID, int quantity, int resolution, String receiptData)
+public void AndroidThunkJava_PlayhavenTrackPurchase(String productID, int quantity, int resolution, float price, String receiptData)
 {
 	Purchase p = new Purchase();
 	p.setSKU(productID);
