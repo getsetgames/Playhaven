@@ -249,7 +249,7 @@ void UPlayhavenFunctions::PlayhavenTrackPurchase(FString productID, int quantity
     
         PHPublisherIAPTrackingRequest *r = [PHPublisherIAPTrackingRequest requestForApp:token
                                                                                  secret:secret
-                                                                                product:productID
+                                                                                product:productID.GetNSString()
                                                                                quantity:quantity
                                                                              resolution:resolution
                                                                             receiptData:receiptData];
