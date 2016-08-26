@@ -233,7 +233,42 @@ void UPlayhavenFunctions::PlayhavenContentRequestPreload(FString placement)
 
 void UPlayhavenFunctions::PlayhavenTrackPurchase(FString productID, int quantity, int resolution, FString receiptData)
 {
+#if PLATFORM_IOS
+    NSDictionary *d = [phs infoSDKSettings];
     
+    if (d)
+    {
+        NSString *token  = d[@"Token"];
+        NSString *secret = d[@"Secret"];
+    
+        PHPublisherIAPTrackingRequest *r = [PHPublisherIAPTrackingRequest requestForApp:token
+                                                                                 secret:secret
+                                                                                product:productID
+                                                                               quantity:quantity
+                                                                             resolution:resolution
+                                                                            receiptData:receiptData];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [r send];
+        });
+    }
+#elif PLATFORM_ANDROID
+
+    static jmethodID Method = FJavaWrapper::FindMethod(Env,
+                                                       FJavaWrapper::GameActivityClassID,
+                                                       "AndroidThunkJava_PlayhavenTrackPurchase",
+                                                       "(Ljava/lang/String;IILjava/lang/String;)V",
+                                                       false);
+    
+    jstring jProductID   = Env->NewStringUTF(TCHAR_TO_UTF8(*productID));
+    jint    jQuantity    = (jint)quantity;
+    jint    jResolution  = (jint)resolution;
+    jstring jReceiptData = Env->NewStringUTF(TCHAR_TO_UTF8(*receiptData));
+    
+    FJavaWrapper::CallVoidMethod(Env, FJavaWrapper::GameActivityThis, Method, jProductID, jQuantity, jResolution, jReceiptData);
+    
+    Env->DeleteLocalRef(jProductID);
+    Env->DeleteLocalRef(jReceiptData);
+#endif
 }
 
 void UPlayhavenFunctions::PlayhavenSetOptOutStatus(bool optOutStatus)
