@@ -179,18 +179,21 @@ void UPlayhavenFunctions::PlayhavenContentRequest(FString placement, bool showsO
     }
     
 #elif PLATFORM_ANDROID
-    static jmethodID Method = FJavaWrapper::FindMethod(Env,
-                                                       FJavaWrapper::GameActivityClassID,
-                                                       "AndroidThunkJava_PlayhavenContentRequest",
-                                                       "(Ljava/lang/String;Z)V",
-                                                       false);
-    
-    jstring  jPlacement               = Env->NewStringUTF(TCHAR_TO_UTF8(*placement));
-    jboolean jShowsOverlayImmediately = (jboolean)ShowsOverlayImmediately;
+    if (JNIEnv* Env = FAndroidApplication::GetJavaEnv())
+    {
+        static jmethodID Method = FJavaWrapper::FindMethod(Env,
+                                                           FJavaWrapper::GameActivityClassID,
+                                                           "AndroidThunkJava_PlayhavenContentRequest",
+                                                           "(Ljava/lang/String;Z)V",
+                                                           false);
+        
+        jstring  jPlacement               = Env->NewStringUTF(TCHAR_TO_UTF8(*placement));
+        jboolean jShowsOverlayImmediately = (jboolean)ShowsOverlayImmediately;
 
-    FJavaWrapper::CallVoidMethod(Env, FJavaWrapper::GameActivityThis, Method, jPlacement, jShowsOverlayImmediately);
-    
-    Env->DeleteLocalRef(jPlacement);
+        FJavaWrapper::CallVoidMethod(Env, FJavaWrapper::GameActivityThis, Method, jPlacement, jShowsOverlayImmediately);
+        
+        Env->DeleteLocalRef(jPlacement);
+    }
 #endif
     
 }
@@ -216,17 +219,20 @@ void UPlayhavenFunctions::PlayhavenContentRequestPreload(FString placement)
     }
     
 #elif PLATFORM_ANDROID
-    static jmethodID Method = FJavaWrapper::FindMethod(Env,
-                                                       FJavaWrapper::GameActivityClassID,
-                                                       "AndroidThunkJava_PlayhavenContentRequestPreload",
-                                                       "(Ljava/lang/String;)V",
-                                                       false);
-    
-    jstring jPlacement = Env->NewStringUTF(TCHAR_TO_UTF8(*placement));
-    
-    FJavaWrapper::CallVoidMethod(Env, FJavaWrapper::GameActivityThis, Method, jPlacement);
-    
-    Env->DeleteLocalRef(jPlacement);
+    if (JNIEnv* Env = FAndroidApplication::GetJavaEnv())
+    {
+        static jmethodID Method = FJavaWrapper::FindMethod(Env,
+                                                           FJavaWrapper::GameActivityClassID,
+                                                           "AndroidThunkJava_PlayhavenContentRequestPreload",
+                                                           "(Ljava/lang/String;)V",
+                                                           false);
+        
+        jstring jPlacement = Env->NewStringUTF(TCHAR_TO_UTF8(*placement));
+        
+        FJavaWrapper::CallVoidMethod(Env, FJavaWrapper::GameActivityThis, Method, jPlacement);
+        
+        Env->DeleteLocalRef(jPlacement);
+    }
 #endif
     
 }
@@ -252,22 +258,24 @@ void UPlayhavenFunctions::PlayhavenTrackPurchase(FString productID, int quantity
         });
     }
 #elif PLATFORM_ANDROID
-
-    static jmethodID Method = FJavaWrapper::FindMethod(Env,
-                                                       FJavaWrapper::GameActivityClassID,
-                                                       "AndroidThunkJava_PlayhavenTrackPurchase",
-                                                       "(Ljava/lang/String;IILjava/lang/String;)V",
-                                                       false);
-    
-    jstring jProductID   = Env->NewStringUTF(TCHAR_TO_UTF8(*productID));
-    jint    jQuantity    = (jint)quantity;
-    jint    jResolution  = (jint)resolution;
-    jstring jReceiptData = Env->NewStringUTF(TCHAR_TO_UTF8(*receiptData));
-    
-    FJavaWrapper::CallVoidMethod(Env, FJavaWrapper::GameActivityThis, Method, jProductID, jQuantity, jResolution, jReceiptData);
-    
-    Env->DeleteLocalRef(jProductID);
-    Env->DeleteLocalRef(jReceiptData);
+    if (JNIEnv* Env = FAndroidApplication::GetJavaEnv())
+    {
+        static jmethodID Method = FJavaWrapper::FindMethod(Env,
+                                                           FJavaWrapper::GameActivityClassID,
+                                                           "AndroidThunkJava_PlayhavenTrackPurchase",
+                                                           "(Ljava/lang/String;IILjava/lang/String;)V",
+                                                           false);
+        
+        jstring jProductID   = Env->NewStringUTF(TCHAR_TO_UTF8(*productID));
+        jint    jQuantity    = (jint)quantity;
+        jint    jResolution  = (jint)resolution;
+        jstring jReceiptData = Env->NewStringUTF(TCHAR_TO_UTF8(*receiptData));
+        
+        FJavaWrapper::CallVoidMethod(Env, FJavaWrapper::GameActivityThis, Method, jProductID, jQuantity, jResolution, jReceiptData);
+        
+        Env->DeleteLocalRef(jProductID);
+        Env->DeleteLocalRef(jReceiptData);
+    }
 #endif
 }
 
@@ -277,13 +285,16 @@ void UPlayhavenFunctions::PlayhavenSetOptOutStatus(bool optOutStatus)
     [PHAPIRequest setOptOutStatus:(BOOL)optOutStatus];
 
 #elif PLATFORM_ANDROID
-    static jmethodID Method = FJavaWrapper::FindMethod(Env,
-                                                       FJavaWrapper::GameActivityClassID,
-                                                       "AndroidThunkJava_PlayhavenSetOptOutStatus",
-                                                       "(Z)V",
-                                                       false);
-    jboolean jOptOutStatus = (jboolean)optOutStatus;
+    if (JNIEnv* Env = FAndroidApplication::GetJavaEnv())
+    {
+        static jmethodID Method = FJavaWrapper::FindMethod(Env,
+                                                           FJavaWrapper::GameActivityClassID,
+                                                           "AndroidThunkJava_PlayhavenSetOptOutStatus",
+                                                           "(Z)V",
+                                                           false);
+        jboolean jOptOutStatus = (jboolean)optOutStatus;
 
-    FJavaWrapper::CallVoidMethod(Env, FJavaWrapper::GameActivityThis, Method, jOptOutStatus);
+        FJavaWrapper::CallVoidMethod(Env, FJavaWrapper::GameActivityThis, Method, jOptOutStatus);
+    }
 #endif
 }
