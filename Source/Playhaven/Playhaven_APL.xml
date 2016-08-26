@@ -74,7 +74,7 @@ public void AndroidThunkJava_PlayhavenContentRequest(String placement, boolean s
 {
  	int displayOptions = showsOverlayImmediately ? PlayHavenView.DISPLAY_OVERLAY : 0 | PlayHavenView.DISPLAY_ANIMATION;
 
-    startActivity(FullScreen.createIntent(this, placement, displayAnimations));
+    startActivity(FullScreen.createIntent(this, placement, displayOptions));
 }
 
 public void AndroidThunkJava_PlayhavenContentRequestPreload(String placement)
