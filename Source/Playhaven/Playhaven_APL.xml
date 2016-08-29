@@ -5,8 +5,8 @@
 	<init>
 		<log text="Playhaven init"/>
 
-		<setStringFromProperty result="sPlayhavenToken"  ini="Engine" section="/Script/Playhaven.PlayhavenSettings" property="PlayhavenToken"  default=""/>
-		<setStringFromProperty result="sPlayhavenSecret" ini="Engine" section="/Script/Playhaven.PlayhavenSettings" property="PlayhavenSecret" default=""/>
+		<setStringFromProperty result="sPlayhavenToken"  ini="Engine" section="/Script/Playhaven.PlayhavenSettings" property="PlayhavenTokenAndroid"  default=""/>
+		<setStringFromProperty result="sPlayhavenSecret" ini="Engine" section="/Script/Playhaven.PlayhavenSettings" property="PlayhavenSecretAndroid" default=""/>
 	</init>
 
 	<!-- optional updates applied to AndroidManifest.xml -->
