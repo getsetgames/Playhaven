@@ -15,9 +15,15 @@ class UPlayhavenSettings : public UObject
 public:
 	UPlayhavenSettings(const FObjectInitializer& ObjectInitializer);
     
-    UPROPERTY(Config, EditAnywhere, Category=General, meta=(DisplayName="Token"))
-    FString PlayhavenToken;
+    UPROPERTY(Config, EditAnywhere, Category=General, meta=(DisplayName="Token - iOS"))
+    FString PlayhavenTokeniOS;
     
-    UPROPERTY(Config, EditAnywhere, Category=General, meta=(DisplayName="Secret"))
-    FString PlayhavenSecret;
+    UPROPERTY(Config, EditAnywhere, Category=General, meta=(DisplayName="Secret - iOS"))
+    FString PlayhavenSecretiOS;
+    
+    UPROPERTY(Config, EditAnywhere, Category=General, meta=(DisplayName="Token - Android"))
+    FString PlayhavenTokenAndroid;
+    
+    UPROPERTY(Config, EditAnywhere, Category=General, meta=(DisplayName="Secret - Android"))
+    FString PlayhavenSecretAndroid;
 };

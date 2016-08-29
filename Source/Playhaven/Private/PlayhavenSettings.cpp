@@ -8,7 +8,9 @@
 
 UPlayhavenSettings::UPlayhavenSettings(const FObjectInitializer& ObjectInitializer)
 : Super(ObjectInitializer),
-PlayhavenToken(""),
-PlayhavenSecret("")
+PlayhavenTokeniOS(""),
+PlayhavenSecretiOS(""),
+PlayhavenTokenAndroid(""),
+PlayhavenSecretAndroid("")
 {
 }
