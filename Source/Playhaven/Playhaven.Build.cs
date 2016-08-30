@@ -66,6 +66,9 @@ namespace UnrealBuildTool.Rules
 			{
   				PrivateIncludePaths.Add(Path.Combine(ModulePath, "..", "..", "lib", "iOS", "artifacts", "include"));
 				PublicAdditionalLibraries.Add(Path.Combine(Path.Combine(ModulePath, "..", "..", "lib", "iOS", "artifacts", "lib", "libPlayHaven.a")));
+
+				string PluginPath = Utils.MakePathRelativeTo(ModuleDirectory, BuildConfiguration.RelativeEnginePath);
+				AdditionalPropertiesForReceipt.Add(new ReceiptProperty("IOSPlugin", Path.Combine(PluginPath, "Playhaven_IPL.xml")));
 			}
 			else if(Target.Platform == UnrealTargetPlatform.Android)
 			{
