@@ -3,6 +3,7 @@
 //  Copyright (c) 2015 Get Set Games Inc. All rights reserved.
 //
 
+#include "PlayhavenComponent.h"
 #include "PlayhavenPrivatePCH.h"
 
 void UPlayhavenComponent::OnRegister()

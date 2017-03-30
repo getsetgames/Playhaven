@@ -3,6 +3,7 @@
 //  Copyright (c) 2015 Get Set Games Inc. All rights reserved.
 //
 
+#include "PlayhavenFunctions.h"
 #include "PlayhavenPrivatePCH.h"
 
 #if PLATFORM_ANDROID

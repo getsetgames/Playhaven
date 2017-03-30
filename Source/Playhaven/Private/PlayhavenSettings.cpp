@@ -3,8 +3,8 @@
 //  Copyright (c) 2015 Get Set Games Inc. All rights reserved.
 //
 
-#include "PlayhavenPrivatePCH.h"
 #include "PlayhavenSettings.h"
+#include "PlayhavenPrivatePCH.h"
 
 UPlayhavenSettings::UPlayhavenSettings(const FObjectInitializer& ObjectInitializer)
 : Super(ObjectInitializer),
