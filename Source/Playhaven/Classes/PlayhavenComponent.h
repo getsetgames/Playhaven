@@ -5,6 +5,7 @@
 
 #pragma once
 
+#include "Components/ActorComponent.h"
 #include "PlayhavenFunctions.h"
 #include "PlayhavenComponent.generated.h"
 
