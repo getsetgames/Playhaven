@@ -15,7 +15,7 @@ namespace UnrealBuildTool.Rules
 			get { return ModuleDirectory; }
 		}
 
-		public Playhaven(TargetInfo Target)
+		public Playhaven(ReadOnlyTargetRules Target) : base(Target)
 		{
 			PublicIncludePaths.AddRange(
 				new string[] {
